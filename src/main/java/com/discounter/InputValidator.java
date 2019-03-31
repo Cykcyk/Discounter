@@ -18,4 +18,8 @@ class InputValidator {
         }
         return true;
     }
+
+    boolean isPositive(String amount) {
+        return Double.parseDouble(amount) < 0;
+    }
 }
