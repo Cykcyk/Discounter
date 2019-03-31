@@ -85,8 +85,8 @@ public class App {
             System.out.println(inputText);
             Scanner scanner = new Scanner(System.in);
             String amount = scanner.nextLine();
-            if (!inputValidator.isPrecisionEqualTwo(amount)) {
-                System.out.println("Wprowadz liczbe z dokladnoscia do dwoch miejsc po przecinku");
+            if (!inputValidator.isPrecisionEqualTwo(amount) || Double.parseDouble(amount) < 0) {
+                System.out.println("Wprowadz liczbe dodatnia z dokladnoscia do dwoch miejsc po przecinku");
             } else {
                 return amount;
             }
