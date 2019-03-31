@@ -8,7 +8,6 @@ public class App {
     private InputValidator inputValidator;
     private ProductsManager productsManager;
     private Discounter discounter;
-    private Scanner scanner;
     private boolean quit = false;
 
     public static void main(String[] args) {
@@ -20,8 +19,6 @@ public class App {
         productsManager = new ProductsManager();
         discounter = new Discounter();
         inputValidator = new InputValidator();
-        scanner = new Scanner(System.in);
-
     }
 
     private void run() {
@@ -31,6 +28,7 @@ public class App {
                     "3. Wprowadz rabat\n" +
                     "4. Oblicz znizki\n" +
                     "5. Wyjscie");
+            Scanner scanner = new Scanner(System.in);
             while (!scanner.hasNextInt()) {
                 scanner.next();
             }
@@ -85,6 +83,7 @@ public class App {
     private String getAmount(String inputText) {
         while (true) {
             System.out.println(inputText);
+            Scanner scanner = new Scanner(System.in);
             String amount = scanner.nextLine();
             if (!inputValidator.isPrecisionEqualTwo(amount)) {
                 System.out.println("Wprowadz liczbe z dokladnoscia do dwoch miejsc po przecinku");

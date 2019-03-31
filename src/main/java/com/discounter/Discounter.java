@@ -47,14 +47,14 @@ class Discounter {
             if (i != products.size() - 1) {
                 products.get(i).setPriceWithDiscount(Math.floor((products.get(i).getPrice() - products.get(i).getDiscount()) * 100.00) / 100.00);
             } else {
-                products.get(i).setPriceWithDiscount(products.get(1).getPrice() - products.get(i).getDiscount());
+                products.get(i).setPriceWithDiscount(products.get(i).getPrice() - products.get(i).getDiscount());
             }
         }
     }
 
     ArrayList<Product> calculateDiscounts(ArrayList<Product> products, Double discount) {
-        if (products.isEmpty()){
-            throw new NullPointerException("Brak produktow na liscie");
+        if (products.isEmpty()) {
+            throw new IllegalArgumentException("Brak produktow na liscie");
         }
         remainingDiscount = discount;
         Double totalPrice = calculateTotalPrice(products);
